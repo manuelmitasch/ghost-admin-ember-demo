@@ -11,7 +11,7 @@
             <a class="markdown-help" href="#"><span class="hidden">What is Markdown?</span></a>
         </header>
         <section id="entry-markdown-content" class="entry-markdown-content">
-            {{textarea id="entry-markdown" value=markdown}}
+            {{view "code-mirror" value=markdown}}
         </section>
     </section>
 
@@ -21,7 +21,7 @@
         </header>
         <section class="entry-preview-content">
             <div class="rendered-markdown">
-                RENDERED MARKDOWN
+                {{mark-down markdown=markdown}}
             </div>
         </section>
     </section>

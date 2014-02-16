@@ -1,5 +1,7 @@
-export default = Ember.View.extend({
+import count from "ghost/utils/word-counter";
+
+export default Ember.View.extend({
   wordCount: function(){
-    return this.get('context.markdown').split(' ').length; // TODO: too dumb word count
+    return count(this.get('context.markdown'));
   }.property("context.markdown")
 });

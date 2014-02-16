@@ -9,3 +9,7 @@
 .post-settings-menu {
   display: none !important;
 }
+
+#entry-markdown, .entry-preview, .entry-preview-content, .CodeMirror.cm-s-default {
+  height: 500px !important;
+}
