@@ -18,7 +18,6 @@ export default Ember.TextArea.extend({
     this.codeMirror.on("scroll", function(cm, that) {
       var scrollInfo = cm.getScrollInfo(),
           percentage = scrollInfo.top/scrollInfo.height;
-          console.log(scrollInfo.top + " :: " + scrollInfo.height + " :: " + percentage);
 
       // throttle scroll info updates
       Ember.run.throttle(cm.component, function () { this.set('scrollPosition', percentage); }, 50);
