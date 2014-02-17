@@ -1,4 +1,6 @@
+var equal = Ember.computed.equal;
+
 export default Ember.ObjectController.extend({
-  isPublished: Ember.computed.equal('status', 'published'),
-  isDraft: Ember.computed.equal('status', 'draft')
+  isPublished: equal('status', 'published'),
+  isDraft: equal('status', 'draft')
 });
