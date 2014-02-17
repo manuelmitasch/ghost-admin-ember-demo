@@ -18,7 +18,7 @@ Ember.Route.reopen({
         rootElement = this.router.namespace.get('rootElement');
     
     if (cssClasses) {
-      Ember.run.schedule('afterRender', function(){ 
+      Ember.run.schedule('afterRender', this, function(){ 
         Ember.$(rootElement).addClass(cssClasses); 
       });
     }
@@ -27,7 +27,7 @@ Ember.Route.reopen({
     var cssClasses = this.get('classNames'),
         rootElement = this.router.namespace.get('rootElement');
 
-    Ember.run.schedule('afterRender', function(){ 
+    Ember.run.schedule('afterRender', this, function(){ 
       Ember.$(rootElement).removeClass(cssClasses);
     });
   }
