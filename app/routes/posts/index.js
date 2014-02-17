@@ -1,6 +1,6 @@
 export default Ember.Route.extend({
-  // when index route is activate -> show first post
-  activate: function() {
+  // redirect to first post subroute
+  redirect: function() {
     var firstPost = this.modelFor('posts').posts[0];
 
     if (firstPost) {
