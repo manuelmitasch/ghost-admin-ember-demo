@@ -21,6 +21,12 @@
   height: auto !important;
 }
 
+.editor input {
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
 @font-face {
     font-family: "Icons";
     src: url("https://testblog111.ghost.io/ghost/fonts/icons.woff") format('woff');

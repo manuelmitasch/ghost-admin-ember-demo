@@ -18,14 +18,18 @@ Ember.Route.reopen({
         rootElement = this.router.namespace.get('rootElement');
     
     if (cssClasses) {
-      Ember.$(rootElement).addClass(cssClasses);
+      Ember.run.schedule('afterRender', function(){ 
+        Ember.$(rootElement).addClass(cssClasses); 
+      });
     }
   },
   deactivate: function() {
     var cssClasses = this.get('classNames'),
         rootElement = this.router.namespace.get('rootElement');
 
-    Ember.$(rootElement).removeClass(cssClasses);
+    Ember.run.schedule('afterRender', function(){ 
+      Ember.$(rootElement).removeClass(cssClasses);
+    });
   }
 });
 
