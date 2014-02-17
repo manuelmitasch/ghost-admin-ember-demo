@@ -1,28 +1,43 @@
 /* global CodeMirror*/
+
+var onChangeHandler = function(cm) { 
+  var curValue = cm.getDoc().getValue();
+  cm.component.set('value', cm.getDoc().getValue()); 
+};
+
+var onScrollHandler = function(cm) {
+  var scrollInfo = cm.getScrollInfo(),
+      percentage = scrollInfo.top/scrollInfo.height,
+      component = cm.component;
+
+  // throttle scroll updates
+  component.throttle = Ember.run.throttle(component, function () { this.set('scrollPosition', percentage); }, 50);
+}
+
 export default Ember.TextArea.extend({  
   initCodemirror: function() {      
     // create codemirror
-    this.codeMirror = CodeMirror.fromTextArea(this.get('element'), {
+    this.codemirror = CodeMirror.fromTextArea(this.get('element'), {
       lineWrapping: true
     });
 
-    this.codeMirror.component = this; 
+    this.codemirror.component = this; // save reference to this
 
     // propagate changes to value property
-    this.codeMirror.on("change", function(cm, that) { 
-      var curValue = cm.getDoc().getValue();
-      cm.component.set('value', cm.getDoc().getValue()); 
-    });             
+    this.codemirror.on("change", onChangeHandler);             
 
     // on scroll update scrollPosition property
-    this.codeMirror.on("scroll", function(cm, that) {
-      var scrollInfo = cm.getScrollInfo(),
-          percentage = scrollInfo.top/scrollInfo.height;
+    this.codemirror.on("scroll", onScrollHandler);
+  }.on("didInsertElement"),
 
-      // throttle scroll info updates
-      Ember.run.throttle(cm.component, function () { this.set('scrollPosition', percentage); }, 50);
-    });
+  removeThrottle: function() {
+    Ember.run.cancel(this.throttle);
+  }.on("willDestroyElement"),
 
-  }.on("didInsertElement")
+  removeCodemirrorHandlers: function() {
+    // not sure if this is needed.
+    this.codemirror.off("change", onChangeHandler);
+    this.codemirror.off("scroll", onScrollHandler);
+  }.on("willDestroyElement")
 
 });
