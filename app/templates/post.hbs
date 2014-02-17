@@ -1,30 +1,8 @@
-<section class="entry-container">
-    <header>
-        <section class="box entry-title">
-            {{input type="text" id="entry-title" placeholder="Your Post Title" value=title tabindex="1"}}
-        </section>
-    </header>
+{{partial "floating-header"}}
 
-    <section class="entry-markdown active">
-        <header class="floatingheader">
-            <small>Markdown</small>
-            <a class="markdown-help" href="#"><span class="hidden">What is Markdown?</span></a>
-        </header>
-        <section id="entry-markdown-content" class="entry-markdown-content">
-            {{view "code-mirror" value=markdown}}
-        </section>
-    </section>
-
-    <section class="entry-preview">
-        <header class="floatingheader">
-            <small>Preview <span class="entry-word-count js-entry-word-count">{{view.wordCount}} words</span></small>
-        </header>
-        <section class="entry-preview-content">
-            <div class="rendered-markdown">
-                {{mark-down markdown=markdown}}
-            </div>
-        </section>
-    </section>
+<section class="content-preview-content">
+  <div class="wrapper">
+    <h1>{{title}}</h1>
+    {{format-markdown markdown}}
+  </div>
 </section>
-
-{{partial 'publish-bar'}}

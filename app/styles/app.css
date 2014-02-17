@@ -1,15 +1,28 @@
 /* Put your CSS here */
-
+/*
 @keyframes domChanged { from { background: yellow; } }
 @-webkit-keyframes domChanged { from { background: yellow; } }
 .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
-
+*/
 
 /* Cosmetic changes to ghost styles */
 .post-settings-menu {
   display: none !important;
 }
 
-#entry-markdown, .entry-preview, .entry-preview-content, .CodeMirror.cm-s-default {
+#entry-markdown, .entry-preview, .CodeMirror.cm-s-default {
   height: 500px !important;
 }
+
+.editor .entry-title {
+  box-shadow: none !important;
+  background: none !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+@font-face {
+    font-family: "Icons";
+    src: url("https://testblog111.ghost.io/ghost/fonts/icons.woff") format('woff');
+}
+

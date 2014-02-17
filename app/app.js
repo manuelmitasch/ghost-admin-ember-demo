@@ -10,4 +10,23 @@ var App = Ember.Application.extend({
   Resolver: Resolver['default']
 });
 
+
+// needed to add body class depending on current route
+Ember.Route.reopen({
+  activate: function() {
+    var cssClasses = this.get('classNames'),
+        rootElement = this.router.namespace.get('rootElement');
+    
+    if (cssClasses) {
+      Ember.$(rootElement).addClass(cssClasses);
+    }
+  },
+  deactivate: function() {
+    var cssClasses = this.get('classNames'),
+        rootElement = this.router.namespace.get('rootElement');
+
+    Ember.$(rootElement).removeClass(cssClasses);
+  }
+});
+
 export default App;
