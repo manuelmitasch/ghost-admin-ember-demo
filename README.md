@@ -16,5 +16,5 @@ Once the dependencies are installed, you can simply run `grunt server` and navig
 
 ## License
 
-Copyright 2013 by Stefan Penner and Ember App Kit Contributors, and licensed under the MIT License. See included
+Copyright 2014 by Manuel Mitasch and Ember App Kit Contributors, and licensed under the MIT License. See included
 [LICENSE](/stefanpenner/ember-app-kit/blob/master/LICENSE) file for details.
