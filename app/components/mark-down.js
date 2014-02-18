@@ -1,6 +1,3 @@
-/* global Showdown */
-var showdown = new Showdown.converter();
-
 export default Ember.Component.extend({
   adjustScrollPosition: function() {
     var scrollWrapper = this.$(".entry-preview-content").get(0),
