@@ -11,7 +11,9 @@ var onScrollHandler = function(cm) {
       component = cm.component;
 
   // throttle scroll updates
-  component.throttle = Ember.run.throttle(component, function () { this.set('scrollPosition', percentage); }, 50);
+  component.throttle = Ember.run.throttle(component, function () { 
+    this.set('scrollPosition', percentage); 
+  }, 50);
 };
 
 export default Ember.TextArea.extend({  
