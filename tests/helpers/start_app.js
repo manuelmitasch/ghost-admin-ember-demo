@@ -1,5 +1,5 @@
-import Application from 'appkit/app';
-import Router from 'appkit/router';
+import Application from 'ghost/app';
+import Router from 'ghost/router';
 
 function startApp(attrs) {
   var App;

@@ -1,4 +1,4 @@
-import resolver from 'appkit/tests/helpers/resolver';
+import resolver from 'ghost/tests/helpers/resolver';
 
 function isolatedContainer(fullNames) {
   var container = new Ember.Container();

@@ -3,7 +3,7 @@ import Resolver from 'resolver';
 var resolver = Resolver.create();
 
 resolver.namespace = {
-  modulePrefix: 'appkit'
+  modulePrefix: 'ghost'
 };
 
 export default resolver;
