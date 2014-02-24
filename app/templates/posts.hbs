@@ -7,7 +7,7 @@
           {{#link-to "new" class="button button-add" title="New Post"}}New Post{{/link-to}}
       </header>
       <section class="content-list-content">
-          <ol>
+          <ol class="posts-list">
             {{#each posts itemController="post"}}
               {{#view "post-item-view" tagName="li" post=this}} <!-- needed because of "active" class on li item -->
                 {{#link-to 'post' this class="permalink" title="Edit this post"}}
