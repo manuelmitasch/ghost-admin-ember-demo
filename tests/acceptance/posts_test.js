@@ -41,6 +41,7 @@ module('Acceptances - Posts', {
 });
 
 
+// commented test, because redirect on postsIndex route does not work in tests => stops rest of tests to run
 // test('posts render', function(){
 //   expect(3);
 
