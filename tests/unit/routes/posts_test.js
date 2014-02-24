@@ -27,14 +27,15 @@ test("it exists", function(){
 });
 
 
-// not working: model promise seems to never resolve => loading route
-// test("model", function(){
-//   expect(1);
+test("model", function(){
+  expect(1);
   
-//   var expectedResult = ic.ajax.lookupFixture('/ghost/api/v0.1/posts').response;
-//   var route = this.subject();
+  var expectedResult = ic.ajax.lookupFixture('/ghost/api/v0.1/posts').response;
+  var route = this.subject();
 
-//   route.model().then(function(model) {
-//     deepEqual(model, expectedResult, "Route model should match exptected");
-//   });
-// });
+  Ember.run(function() {
+    route.model().then(function(model) {
+      deepEqual(model, expectedResult, "Route model should match exptected");
+    });
+  });
+});
